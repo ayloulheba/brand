@@ -1,0 +1,606 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watcher</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Dosis:400,500|Poppins:400,700&display=swap" rel="stylesheet">
+    <style>
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            color: #000;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        button {
+            background-color: #6a5acd;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #5a4cc4;
+        }
+
+        .basket-item {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .delete-icon, .edit-icon {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2em;
+            margin-left: 10px;
+            color: #f00;
+        }
+
+        .basket-item input[type="number"] {
+            width: 60px;
+            padding: 5px;
+            margin-right: 10px;
+        }
+
+        .basket-item button {
+            cursor: pointer;
+            background-color: transparent;
+            border: none;
+            font-size: 16px;
+            margin-left: 5px;
+            padding: 0;
+        }
+
+        .basket-item .edit-icon {
+            color: #00f;
+        }
+
+        @media (max-width: 768px) {
+            .basket-item {
+                flex-direction: column;
+            }
+
+            .basket-item input[type="number"] {
+                width: 100%;
+                margin-right: 0;
+                margin-top: 5px;
+            }
+
+            .basket-item button {
+                margin-top: 5px;
+            }
+        }
+
+        .form-group select, .form-group input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        .header .navbar .nav-link i.fas.fa-shopping-cart {
+            font-size: 1.5rem;
+            color: #333;
+            margin-left: 20px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #F6E6CB;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* Navbar CSS */
+        .header .navbar .nav-link {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .header .navbar .nav-link i.fas.fa-shopping-cart:hover {
+            color: #61d95a;
+        }
+
+        header.header {
+            padding: 0px 0;
+            background-color: #2e2f42;
+        }
+
+        .navbar-brand {
+            font-size: 2rem;
+        }
+
+        .navbar-nav .nav-link {
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 992px) {
+            .navbar-brand {
+                font-size: 1.75rem;
+            }
+            .navbar-nav .nav-link {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar-brand {
+                font-size: 1.5rem;
+            }
+            .navbar-nav .nav-link {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .navbar-brand {
+                font-size: 1.25rem;
+            }
+            .navbar-nav .nav-link {
+                font-size: 0.85rem;
+            }
+        }
+
+        .header {
+            background-color: #fff;
+            padding: 10px 0;
+        }
+
+        .navbar-brand {
+            font-family: 'Dosis', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .navbar-nav .nav-item .nav-link {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .category-buttons {
+            margin: 20px 0;
+        }
+
+        .category-buttons button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .category-buttons button:hover {
+            background-color: #555;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            width: 100%;
+            max-width: 1200px;
+            margin-top: 20px;
+        }
+
+        .product-card {
+            background-color: #fff;
+            color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .product-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .product-details {
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        .product-title {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .product-subtitle {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #666;
+        }
+
+        .product-reviews {
+            margin-bottom: 20px;
+        }
+
+        .product-reviews span {
+            color: #ffd700;
+        }
+
+        .product-type {
+            margin-bottom: 20px;
+        }
+
+        .add-to-cart-link {
+            display: block;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .add-to-cart {
+            background-color: #6a5acd;
+            color: #fff;
+            border: none;
+            padding: 15px;
+            width: 100%;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .add-to-cart:hover {
+            background-color: #4cb349;
+        }
+
+        .reload-button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .reload-button:hover {
+            background-color: #555;
+        }
+
+        @media (min-width: 768px) {
+            .products-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .products-grid {
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+            }
+        }
+    </style>
+    
+</head>
+
+<body>
+
+<!-- Navbar -->
+<header class="header">
+    <!-- Header content -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">WATCHER</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'home' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home' %}">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'products' %}">Our Watches</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home' %}">Contact Us</a>
+                </li>
+            </ul>
+            <a id="basket-link" class="nav-link" href="#"><i class="fas fa-shopping-cart"></i></a>
+        </div>
+    </nav>
+</header>
+
+<div class="container">
+
+    <h1>Our Store </h1>
+    <div class="category-buttons">
+        <button onclick="filterCategory('all')">All</button>
+        {% for category in categories %}
+            <button onclick="filterCategory('{{ category.name|lower }}')">{{ category.name }}</button>
+        {% endfor %}
+    </div>
+    <div class="products-grid">
+        {% for product in products %}
+            <div class="product-card {{ product.category.name|lower }}">
+                <div class="product-image">
+                    <img src="{{ product.images.first.image.url }}" alt="Product Image">
+                </div>
+                <div class="product-details">
+                    <h1 class="product-title">{{ product.name }}</h1>
+                    <p class="product-subtitle">${{ product.price }}</p>
+                    <div class="product-reviews">
+                        <span>★★★★☆</span>({{ product.rating }})
+                    </div>
+                    <div class="product-type">
+                        <p>Watch Type: {{ product.category.name }}</p>
+                    </div>
+                    <a href="{% url 'product_detail' product.pk %}" class="add-to-cart-link">
+                        <button class="add-to-cart">View</button>
+                    </a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+    <!-- Basket Modal -->
+    <div id="basketModal" class="modal" >
+        <div class="modal-content">
+            <span class="close-basket">&times;</span>
+            <h2>Basket</h2>
+            <div id="basket-items"></div>
+            <div id="total-bill"></div>
+            <div class="form-group">
+                <label for="checkout-country">Country</label>
+                <input type="text" id="checkout-country" required>
+            </div>
+            <div class="form-group">
+                <label for="checkout-address">Address</label>
+                <input type="text" id="checkout-address" required>
+            </div>
+            <div class="form-group">
+                <label for="checkout-phone">Phone Number</label>
+                <input type="tel" id="checkout-phone" required>
+            </div>
+            <button type="button" onclick="sendBillViaWhatsApp()">Send Bill via WhatsApp</button>
+        </div>
+    </div>
+
+ {% csrf_token %}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script>
+
+
+function filterCategory(category) {
+    const allProducts = document.querySelectorAll('.product-card');
+    if (category === 'all') {
+        allProducts.forEach(product => product.style.display = 'block');
+    } else {
+        allProducts.forEach(product => {
+            if (product.classList.contains(category)) {
+                product.style.display = 'block';
+            } else {
+                product.style.display = 'none';
+            }
+        });
+    }
+}
+
+const basketLink = document.getElementById('basket-link');
+basketLink.addEventListener('click', function() {
+    $.ajax({
+        type: "GET",
+        url: "{% url 'view_basket' %}",
+        success: function(response) {
+            const basketItemsDiv = document.getElementById('basket-items');
+            basketItemsDiv.innerHTML = ''; // Clear previous items
+
+            if (response.basket.length > 0) {
+                response.basket.forEach(item => {
+                    const itemDiv = document.createElement('div');
+                    itemDiv.className = 'basket-item';
+                    itemDiv.innerHTML = `
+                        <p>Product: ${item.product_name}</p>
+                        <p>Price: ${item.price}</p>
+                        <p>Color: ${item.color}</p>
+                        <p>Size: ${item.size}</p>
+                        <p>Quantity: <input type="number" value="${item.quantity}" onchange="editBasketItem(${item.product_id}, this.value)"></p>
+                        <button onclick="deleteBasketItem(${item.product_id})" class="delete-icon">🗑️</button>
+                        <button onclick="editBasketItem(${item.product_id}, this.value)" class="edit-icon">✏️</button>
+                    `;
+                    basketItemsDiv.appendChild(itemDiv);
+                });
+
+                const totalBill = calculateTotalBill(response.basket);
+                const totalBillDiv = document.createElement('div');
+                totalBillDiv.innerHTML = `<p>Total Bill: $${totalBill}</p>`;
+                document.getElementById('total-bill').innerHTML = '';
+                document.getElementById('total-bill').appendChild(totalBillDiv);
+
+                const basketModal = document.getElementById('basketModal');
+                basketModal.style.display = "block";
+            } else {
+                alert('Basket is empty');
+            }
+        }
+    });
+});
+
+function calculateTotalBill(basket) {
+    let total = 0;
+    basket.forEach(item => {
+        total += item.price * item.quantity;
+    });
+    return total;
+}
+
+function editBasketItem(productId, newQuantity) {
+    $.ajax({
+        type: "POST",
+        url: `/edit_basket_item/${productId}/`,
+        data: {
+            quantity: newQuantity,
+            csrfmiddlewaretoken: '{{ csrf_token }}'
+        },
+        success: function(response) {
+            if (response.success) {
+                basketLink.click(); // Reload basket data after edit
+            } else {
+                alert('Failed to edit item');
+            }
+        }
+    });
+}
+
+function deleteBasketItem(productId) {
+    $.ajax({
+        type: "POST",
+        url: `/delete_basket_item/${productId}/`,
+        data: {
+            csrfmiddlewaretoken: '{{ csrf_token }}'
+        },
+        success: function(response) {
+            if (response.success) {
+                basketLink.click(); // Reload basket data after delete
+            } else {
+                alert('Failed to delete item');
+            }
+        }
+    });
+}
+
+
+function sendBillViaWhatsApp() {
+    const basketItemsDiv = document.getElementById('basket-items');
+    const country = document.getElementById('checkout-country').value;
+    const address = document.getElementById('checkout-address').value;
+    const phone = document.getElementById('checkout-phone').value;
+
+    let message = `Checkout details:\nCountry: ${country}\nAddress: ${address}\nPhone: ${phone}\n\nItems:\n`;
+    
+    const basketItems = basketItemsDiv.querySelectorAll('.basket-item');
+    basketItems.forEach(item => {
+        const product = item.querySelector('p:nth-child(1)').textContent.split(': ')[1];
+        const price = item.querySelector('p:nth-child(2)').textContent.split(': ')[1];
+        const color = item.querySelector('p:nth-child(3)').textContent.split(': ')[1];
+        const size = item.querySelector('p:nth-child(4)').textContent.split(': ')[1];
+        const quantity = item.querySelector('p:nth-child(5)').querySelector('input').value;
+        message += `Product: ${product}\nPrice: ${price}\nColor: ${color}\nSize: ${size}\nQuantity: ${quantity}\n\n`;
+    });
+
+    const encodedMessage = encodeURIComponent(message);
+    const companyPhoneNumber = '9647808437903';
+    const whatsappUrl = `https://wa.me/${companyPhoneNumber}?text=${encodedMessage}`;
+
+    // Send the WhatsApp message
+    window.open(whatsappUrl, '_blank');
+
+    // Clear the basket after sending the bill
+    clearBasket();
+}
+
+function clearBasket() {
+    $.ajax({
+        type: "POST",
+        url: "{% url 'clear_basket' %}",
+        data: {
+            csrfmiddlewaretoken: '{{ csrf_token }}'
+        },
+        success: function(response) {
+            if (response.success) {
+                const basketModal = document.getElementById('basketModal');
+                basketModal.style.display = "none"; // Close the basket modal after clearing
+                alert('Basket cleared successfully');
+            } else {
+                alert('Failed to clear basket');
+            }
+        },
+        error: function(xhr, textStatus, errorThrown) {
+            alert('Failed to clear basket');
+            console.error(xhr.responseText);
+        }
+    });
+}
+
+const closeBasketBtn = document.querySelector('.close-basket');
+
+closeBasketBtn.onclick = function() {
+    const basketModal = document.getElementById('basketModal');
+    basketModal.style.display = "none";
+}
+
+window.onclick = function(event) {
+    const basketModal = document.getElementById('basketModal');
+    if (event.target == basketModal) {
+        basketModal.style.display = "none";
+    }
+}
+</script>
+
+<!-- JavaScript links (at the end of body for faster page load) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+</body>
+</html>

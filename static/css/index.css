@@ -1,0 +1,722 @@
+/* Custom CSS for responsiveness */
+ 
+ body, html {
+   
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+     background-color: #F6E6CB;
+   
+    
+    
+}
+
+.header .navbar .nav-link {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    color: #333;
+}
+
+.header .navbar .nav-link i.fas.fa-shopping-cart {
+    font-size: 1.5rem;
+    color: #333;
+    margin-left: 20px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.header .navbar .nav-link i.fas.fa-shopping-cart:hover {
+    color: #61d95a;
+}
+
+
+/* Custom CSS for navbar responsiveness */
+header.header {
+    padding: 0px 0;
+    
+}
+
+.navbar-brand {
+    font-size: 2rem;
+}
+
+.navbar-nav .nav-link {
+    font-size: 1.2rem;
+}
+
+@media (max-width: 992px) {
+    .navbar-brand {
+        font-size: 1.75rem;
+    }
+    .navbar-nav .nav-link {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar-brand {
+        font-size: 1.5rem;
+    }
+    .navbar-nav .nav-link {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar-brand {
+        font-size: 1.25rem;
+    }
+    .navbar-nav .nav-link {
+        font-size: 0.85rem;
+    }
+}
+
+.header {
+    background-color: #fff;
+    padding: 0px 0;
+}
+
+.navbar-brand {
+    font-family: 'Dosis', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.navbar-nav .nav-item .nav-link {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    color: #333;
+}
+
+/* Custom CSS for carousel and its responsiveness */
+.carousel-item h1 {
+    font-size: 2.5rem;
+}
+
+.carousel-item p {
+    font-size: 1.2rem;
+}
+
+.btn {
+    font-size: 1.1rem;
+}
+
+@media (max-width: 992px) {
+    .carousel-item h1 {
+        font-size: 2rem;
+    }
+    .carousel-item p {
+        font-size: 1rem;
+    }
+    .btn {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .carousel-item h1 {
+        font-size: 1.75rem;
+    }
+    .carousel-item p {
+        font-size: 0.9rem;
+    }
+    .btn {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .carousel-item h1 {
+        font-size: 1.5rem;
+    }
+    .carousel-item p {
+        font-size: 0.85rem;
+    }
+    .btn {
+        font-size: 0.85rem;
+    }
+    .carousel-item .col-md-6 {
+        margin-bottom: 20px;
+    }
+}
+
+.carousel-inner img {
+    max-width: 100%;
+    height: auto;
+}
+
+.carousel-inner {
+    background-color: #B6C7AA; /* Set the background color of the carousel body to white */
+}
+
+/* about * /
+  /* Custom CSS for responsiveness */
+  
+    .btn-primary {
+      background-color: #B6C7AA;
+      border-color: #A0937D;
+      color: #fff;
+    }
+
+    .btn-secondary {
+      background-color: #333;
+      border-color: #333;
+      color: #fff;
+    }
+
+.about-section {
+        
+            padding: 20px;
+            text-align: center; /* Center align content */
+        }
+.about-section h2 {
+            font-size: 2.5rem; /* Adjust heading size */
+            margin-bottom: 20px; /* Space below heading */
+        }
+.about-section p {
+            font-size: 1.2rem; /* Adjust paragraph font size */
+            line-height: 1.6; /* Line height for readability */
+            margin-bottom: 20px; /* Space below paragraph */
+        }
+.about-section .btn {
+            font-size: 1rem; /* Button font size */
+        }
+.image-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+.rounded-circle-image {
+            width: 100%; /* Full width */
+            max-width: 400px; /* Max width for larger screens */
+            height: auto;
+            border-radius: 30%;
+            overflow: hidden; /* Hide overflow */
+        }
+.rounded-circle-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 50%;
+        }
+
+        @media (max-width: 992px) {
+            .about-section h2 {
+                font-size: 2rem;
+            }
+            .about-section p {
+                font-size: 1rem;
+            }
+            .about-section .btn {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .about-section h2 {
+                font-size: 1.75rem;
+            }
+            .about-section p {
+                font-size: 0.9rem;
+            }
+            .about-section .btn {
+                font-size: 0.8rem;
+            }
+            .rounded-circle-image {
+                max-width: 300px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .about-section h2 {
+                font-size: 1.5rem;
+            }
+            .about-section p {
+                font-size: 0.85rem;
+            }
+            .about-section .btn {
+                font-size: 0.7rem;
+            }
+            .rounded-circle-image {
+                max-width: 200px;
+            }
+        }
+ /* Base styles for products */
+.products-body {
+    line-height: 1.6;
+    background-color: #fff;
+    padding: 20px;
+}
+
+.products-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.product-card {
+    background-color: white !important;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px;
+    flex: 1 1 300px; /* Flexbox shorthand for flex-grow, flex-shrink, flex-basis */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.breadcrumb {
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.product-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.product-title {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.product-subtitle {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.product-reviews {
+    font-size: 1rem;
+    color: #f39c12;
+    margin-bottom: 10px;
+}
+
+.product-sizes {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.size-option {
+    padding: 10px 20px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #eee;
+    cursor: pointer;
+}
+
+.size-option.active {
+    background-color: #333;
+    color: #fff;
+}
+
+.add-to-cart {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #FFC107;
+    color: #fff;
+    cursor: pointer;
+    
+}
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+    .product-card {
+        flex: 1 1 45%; /* Adjust flex-basis for larger tablets and small desktops */
+    }
+    .product-title {
+        font-size: 1.4rem; /* Reduce heading size */
+    }
+    .product-subtitle {
+        font-size: 1rem; /* Reduce subtitle size */
+    }
+    .product-reviews {
+        font-size: 0.9rem; /* Reduce reviews size */
+    }
+    .breadcrumb {
+        font-size: 0.85rem; /* Reduce breadcrumb size */
+    }
+    .size-option {
+        padding: 8px 16px; /* Reduce padding */
+        font-size: 0.9rem; /* Reduce font size */
+    }
+    .add-to-cart {
+        padding: 8px 16px; /* Reduce padding */
+        font-size: 0.9rem; /* Reduce font size */
+    }
+}
+
+@media (max-width: 992px) {
+    .product-card {
+        flex: 1 1 100%; /* Full width for tablets */
+    }
+    .product-title {
+        font-size: 1.3rem; /* Further reduce heading size */
+    }
+    .product-subtitle {
+        font-size: 0.95rem; /* Further reduce subtitle size */
+    }
+    .product-reviews {
+        font-size: 0.85rem; /* Further reduce reviews size */
+    }
+    .breadcrumb {
+        font-size: 0.8rem; /* Further reduce breadcrumb size */
+    }
+    .size-option {
+        padding: 6px 12px; /* Further reduce padding */
+        font-size: 0.85rem; /* Further reduce font size */
+    }
+    .add-to-cart {
+        padding: 6px 12px; /* Further reduce padding */
+        font-size: 0.85rem; /* Further reduce font size */
+    }
+}
+
+@media (max-width: 768px) {
+    .product-card {
+        padding: 15px; /* Reduce padding */
+        margin: 15px; /* Reduce margin */
+    }
+    .product-title {
+        font-size: 1.2rem; /* Further reduce heading size */
+    }
+    .product-subtitle {
+        font-size: 0.9rem; /* Further reduce subtitle size */
+    }
+    .product-reviews {
+        font-size: 0.8rem; /* Further reduce reviews size */
+    }
+    .breadcrumb {
+        font-size: 0.75rem; /* Further reduce breadcrumb size */
+    }
+    .size-option {
+        padding: 5px 10px; /* Further reduce padding */
+        font-size: 0.8rem; /* Further reduce font size */
+    }
+    .add-to-cart {
+        padding: 5px 10px; /* Further reduce padding */
+        font-size: 0.8rem; /* Further reduce font size */
+    }
+}
+
+@media (max-width: 576px) {
+    .product-card {
+        padding: 10px; /* Further reduce padding for mobile */
+        margin: 10px; /* Further reduce margin for mobile */
+    }
+    .product-title {
+        font-size: 1.1rem; /* Further reduce heading size */
+    }
+    .product-subtitle {
+        font-size: 0.85rem; /* Further reduce subtitle size */
+    }
+    .product-reviews {
+        font-size: 0.75rem; /* Further reduce reviews size */
+    }
+    .breadcrumb {
+        font-size: 0.7rem; /* Further reduce breadcrumb size */
+    }
+    .size-option {
+        padding: 4px 8px; /* Further reduce padding */
+        font-size: 0.75rem; /* Further reduce font size */
+    }
+    .add-to-cart {
+        padding: 4px 8px; /* Further reduce padding */
+        font-size: 0.75rem; /* Further reduce font size */
+    }
+}
+
+
+/* OUR services */
+
+/* Base styles for services */
+.services-body {
+    line-height: 1.6;
+    background-color: #F6E6CB;
+    padding: 20px;
+}
+
+.services {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.service {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px;
+    text-align: center;
+    flex: 1 1 300px; /* Flexbox shorthand for flex-grow, flex-shrink, flex-basis */
+}
+
+.service i {
+    color: #333;
+    font-size: 3rem; /* Adjust icon size as needed */
+    margin-bottom: 20px;
+    display: block;
+}
+
+.service h3 {
+    margin-top: 10px;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.service p {
+    color: #666;
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+    .service {
+        flex: 1 1 45%; /* Adjust flex-basis for larger tablets and small desktops */
+    }
+    .service i {
+        font-size: 2.5rem; /* Reduce icon size */
+    }
+    .service h3 {
+        font-size: 1.4rem; /* Reduce heading size */
+    }
+    .service p {
+        font-size: 0.95rem; /* Reduce paragraph size */
+    }
+}
+
+@media (max-width: 992px) {
+    .service {
+        flex: 1 1 100%; /* Full width for tablets */
+    }
+    .service i {
+        font-size: 2.25rem; /* Further reduce icon size */
+    }
+    .service h3 {
+        font-size: 1.3rem; /* Further reduce heading size */
+    }
+    .service p {
+        font-size: 0.9rem; /* Further reduce paragraph size */
+    }
+}
+
+@media (max-width: 768px) {
+    .service {
+        flex: 1 1 100%; /* Full width for smaller tablets */
+        padding: 15px; /* Reduce padding */
+        margin: 15px; /* Reduce margin */
+    }
+    .service i {
+        font-size: 2rem; /* Further reduce icon size */
+    }
+    .service h3 {
+        font-size: 1.2rem; /* Further reduce heading size */
+    }
+    .service p {
+        font-size: 0.85rem; /* Further reduce paragraph size */
+    }
+}
+
+@media (max-width: 576px) {
+    .service {
+        padding: 10px; /* Further reduce padding for mobile */
+        margin: 10px; /* Further reduce margin for mobile */
+    }
+    .service i {
+        font-size: 1.75rem; /* Further reduce icon size */
+    }
+    .service h3 {
+        font-size: 1.1rem; /* Further reduce heading size */
+    }
+    .service p {
+        font-size: 0.8rem; /* Further reduce paragraph size */
+    }
+}
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .services {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .service {
+        width: 80%;
+    }
+}
+
+
+.testimonial-body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
+.testimonial-slider {
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.testimonial {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    margin: 20px;
+}
+
+.testimonial-content {
+    padding-bottom: 20px;
+}
+
+.testimonial p {
+    font-size: 1.1rem;
+    color: #333;
+    line-height: 1.6;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.testimonial-author img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.testimonial-author-info {
+    text-align: left;
+}
+
+.testimonial-author-info h4 {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.testimonial-author-info p {
+    font-size: 1rem;
+    color: #666;
+}
+.testimonial-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px; /* Adjust margin as needed */
+}
+
+.testimonial-navigation button {
+    background-color: #FFC107;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.testimonial-navigation button:hover {
+    background-color: #0056b3;
+}
+
+.testimonial-navigation button:focus {
+    outline: none;
+}
+
+.testimonial-navigation button i {
+    font-size: 1rem; /* Adjust icon size as needed */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .testimonial {
+        padding: 15px;
+        margin: 10px;
+    }
+
+    .testimonial p {
+        font-size: 1rem;
+    }
+
+    .testimonial-author img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .testimonial-author-info h4 {
+        font-size: 1rem;
+    }
+
+    .testimonial-author-info p {
+        font-size: 0.9rem;
+    }
+}
+
+
+/* Footer styles */
+/* Footer styles */
+.custom-footer {
+    background-color: #A0937D;
+    padding: 40px 0;
+    color: #495057;
+    font-size: 16px;
+}
+
+.custom-footer h3 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.custom-footer ul.contact-info {
+    list-style-type: none;
+    padding: 0;
+}
+
+.custom-footer ul.contact-info li {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.custom-footer ul.contact-info li i {
+    margin-right: 10px;
+    color: #007bff; /* Adjust icon color */
+}
+
+/* Copyright section styles */
+.custom-copyright {
+    background-color: #A0937D;
+    color: #ffffff; /* Light text color */
+    padding: 20px 0;
+}
+
+.custom-copyright p {
+    margin: 0;
+    text-align: center;
+    font-size: 14px;
+}

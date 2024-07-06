@@ -1,0 +1,608 @@
+ {% load static %}
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Brand</title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.theme.default.min.css">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+   <link href="https://fonts.googleapis.com/css?family=Dosis:400,500|Poppins:400,700&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+   
+
+
+   <link rel="stylesheet" href="{% static 'css/index.css' %}">
+ 
+ <style>
+ /* Featured Products Carousel */
+        .featured-carousel {
+            text-align: center;
+            padding: 0px;
+        }
+
+        .featured-carousel-title {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .featured-carousel-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .featured-carousel-nav {
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 2em;
+            padding: 10px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1;
+        }
+
+        .featured-left-nav {
+            left: 10px;
+        }
+
+        .featured-right-nav {
+            right: 10px;
+        }
+
+        .featured-carousel-items {
+            display: flex;
+            overflow: hidden;
+            width: 80%;
+        }
+
+        .featured-carousel-item {
+            background-color:white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 0 10px;
+            padding: 20px;
+            text-align: center;
+            min-width: 250px;
+            transition: transform 0.5s ease;
+        }
+
+       .featured-carousel-item img {
+        width: 100%;
+        height: 200px; /* Static height */
+        object-fit: cover;
+        border-radius: 10px;
+        margin-bottom: 10px;
+    }
+
+        .featured-carousel-item h3 {
+            margin: 10px 0;
+        }
+
+        .featured-rating {
+            color: #FFA500;
+            margin-bottom: 10px;
+        }
+
+        .featured-old-price {
+            text-decoration: line-through;
+            color: #888;
+        }
+
+        .featured-new-price {
+            color: #4CAF50;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .featured-add-to-cart {
+            background-color: #FFC107;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .featured-add-to-cart:hover {
+            background-color: #45a049;
+        }
+
+        .featured-carousel-dots {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .featured-dot {
+            height: 15px;
+            width: 15px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .featured-dot.active, .featured-dot:hover {
+            background-color: #A0937D;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .featured-carousel-items {
+                width: 90%;
+            }
+
+            .featured-carousel-nav {
+                font-size: 1.5em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .featured-carousel-item {
+                min-width: 200px;
+                padding: 10px;
+            }
+        }
+        
+        
+.product-name {
+    color: #fff;
+
+}
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.card {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  color: #fff;
+  box-shadow: 0 10px 30px 5px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.card-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.6);
+  transition: background-color 0.3s ease-in-out;
+}
+
+.card h2, .card p, .card-button {
+  margin: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.card:hover .card-content {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.card:hover h2, .card:hover p, .card:hover .card-button {
+  opacity: 1;
+}
+
+.card h2 {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+
+.card p {
+  margin-top: 10px;
+}
+
+.card-button {
+  display: inline-block;
+  margin-top: 10px;
+  color: inherit;
+  text-decoration: none;
+}
+
+
+   /* Slider */
+  /* Slider */
+    .image-slider {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        height: 400px;
+    }
+
+    .image-slide {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+    }
+
+    .image-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .image-overlay {
+        position: absolute;
+        bottom: 20%;
+        left: 10%;
+        color: white;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+    }
+
+    .image-overlay h2 {
+        font-size: 2rem;
+        margin: 0;
+    }
+
+    .image-overlay p {
+        font-size: 1.25rem;
+    }
+
+    /* Show the first slide initially */
+    .image-slide:first-child {
+        opacity: 1;
+    }
+
+    </style>
+
+  
+
+
+  
+ </head>
+ <body>
+
+   <header class="header">
+     <!-- Header content -->
+     <nav class="navbar navbar-expand-lg navbar-light bg-light">
+       <a class="navbar-brand" href="#">MY-BRAND</a>
+       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+       </button>
+       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+         <ul class="navbar-nav">
+           <li class="nav-item active">
+             <a class="nav-link" href="{% url 'home' %}">Home</a>
+           </li>
+           <li class="nav-item">
+             <a class="nav-link" href="{% url 'home' %}">About</a>
+           </li>
+           <li class="nav-item">
+             <a class="nav-link" href="{% url 'products' %}">Our Store</a>
+           </li>
+           <li class="nav-item">
+             <a class="nav-link" href="#">Contact Us</a>
+           </li>
+         </ul>
+
+       </div>
+     </nav>
+   </header>
+   <!-- Add to Cart Modal -->
+   
+   <section id="home">
+       <div class="image-slider">
+           <div class="image-slide">
+               <img src="https://media.istockphoto.com/id/1494935138/photo/organic-cosmetics-with-ingredients.jpg?s=1024x1024&w=is&k=20&c=nWDCV1Sv3-GFJbHG35dWGbQr8LCtGLTQtsc27QuUp_c=" alt="Caption for Image 1">
+               <div class="image-overlay">
+                   <h2>Slide Title 1</h2>
+                   <p>Caption for Image 1</p>
+               </div>
+           </div>
+           <div class="image-slide">
+               <img src="https://media.istockphoto.com/id/1356350142/photo/composition-with-cosmetic-products-and-beautiful-roses-on-cement-background-flat-lay.jpg?s=1024x1024&w=is&k=20&c=dP7RhTuDX3eMnw2jYfw0J3wiSxMFW2qrUxq_MKDccoo=" alt="Caption for Image 2">
+               <div class="image-overlay">
+                   <h2>Slide Title 2</h2>
+                   <p>Caption for Image 2</p>
+               </div>
+           </div>
+           <div class="image-slide">
+               <img src="https://media.istockphoto.com/id/1945854990/photo/natural-cosmetic-products-skin-care-concept.jpg?s=1024x1024&w=is&k=20&c=z6NPEkhHXA9APRrfCFmkjP2NcS4nfggbv2zvAFduQYo=" alt="Caption for Image 3">
+               <div class="image-overlay">
+                   <h2>Slide Title 3</h2>
+                   <p>Caption for Image 3</p>
+               </div>
+           </div>
+       </div>
+   </section>
+<main class="main">
+    <div class="container">
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+         {% for slide in slides %}
+     <li data-target="#carouselExampleIndicators" data-slide-to="{{ forloop.counter0 }}" class="{% if forloop.first %}active{% endif %}"></li>
+                    {% endfor %}
+        </ol>
+         <div class="carousel-inner">
+                    {% for slide in slides %}
+                        <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                            <div class="row align-items-center">
+                                <div class="col-md-6">
+                                    <img class="d-block w-100" src="{{ slide.image.url }}" alt="Slide {{ forloop.counter }}">
+                                </div>
+                                <div class="col-md-6">
+                                    <h1>{{ slide.title }}</h1>
+                                    <p>{{ slide.description }}</p>
+                                    <a href="#" class="btn btn-primary">Read More</a>
+                                    <a href="#copyright-section" class="btn btn-secondary">Contact Us</a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+ <div class="container pt-5">
+        <div class="row mt-5">
+            <div class="col-lg-6">
+                <section class="about-section">
+                    <h2>{{ about.title }}</h2>
+                    <p>{{ about.description }}</p>
+                    <a href="#" class="btn btn-primary">Read More</a>
+                </section>
+            </div>
+            <div class="col-lg-6">
+                <section class="image-section">
+                    <div class="rounded-circle-image">
+                        <img src="{{ about.image.url }}" alt="Circular Image">
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+<!-- Featured Products Carousel -->
+<section class="featured-carousel mt-5">
+    <h2 class="featured-carousel-title">Featured Products</h2>
+    <div class="featured-carousel-container">
+        <button class="featured-carousel-nav featured-left-nav">&#8249;</button>
+        <div class="featured-carousel-items">
+            {% for product in products %}
+            <div class="featured-carousel-item">
+                <img src="{{ product.images.first.image.url }}" alt="{{ product.name }}">
+                <h3 class="product-name">{{ product.name }}</h3>
+                <div class="featured-rating">⭐⭐⭐⭐</div>
+                <p class="featured-old-price">${{ product.old_price }}</p>
+                <p class="featured-new-price">${{ product.price }}</p>
+                <button class="featured-add-to-cart">Add to Cart</button>
+            </div>
+            {% endfor %}
+        </div>
+        <button class="featured-carousel-nav featured-right-nav">&#8250;</button>
+    </div>
+    <div class="featured-carousel-dots">
+        {% for dot in dots %}
+        <span class="featured-dot {% if dot == 1 %}active{% endif %}"></span>
+        {% endfor %}
+    </div>
+</section>
+
+
+
+
+<!-- Featured Products Carousel -->
+<!-- Featured Products Carousel -->
+<section class="featured-carousel pt-5">
+    <h2 class="featured-carousel-title">Best Products</h2>
+    <div class="featured-carousel-container">
+        <button class="featured-carousel-nav featured-left-nav">&#8249;</button>
+        <div class="featured-carousel-items">
+            {% for product in products %}
+            <div class="featured-carousel-item">
+                <img src="{{ product.images.first.image.url }}" alt="{{ product.name }}">
+                <h3 class="product-name">{{ product.name }}</h3>
+                <div class="featured-rating">⭐⭐⭐⭐</div>
+                <p class="featured-old-price">${{ product.old_price }}</p>
+                <p class="featured-new-price">${{ product.price }}</p>
+                <button class="featured-add-to-cart">Add to Cart</button>
+            </div>
+            {% endfor %}
+        </div>
+        <button class="featured-carousel-nav featured-right-nav">&#8250;</button>
+    </div>
+    <div class="featured-carousel-dots">
+        {% for dot in dots %}
+        <span class="featured-dot {% if dot == 1 %}active{% endif %}"></span>
+        {% endfor %}
+    </div>
+</section>
+
+
+
+
+
+<div class="card-container mt-5">
+  {% for category in categories %}
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1458538977777-0549b2370168?q=80&w=1474&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+    <div class="card-content"> 
+      <h2>
+        {{ category.name }}
+      </h2>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt exercitationem iste, voluptatum, quia explicabo laboriosam rem adipisci voluptates cumque, veritatis atque nostrum corrupti ipsa asperiores harum? Dicta odio aut hic.
+      </p>
+      <a href="#" class="card-button">
+    <a href="{% url 'category-products' category.name %}" class="card-button">{{ category.name }}للمزيد</a>
+      
+      </a>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+ 
+
+ 
+
+
+  
+        
+
+<div class="services-body">
+        <section class="services">
+            {% for service in services %}
+                <div class="service">
+                    <i class="{{ service.icon_class }} fa-3x"></i>
+                    <h3>{{ service.name }}</h3>
+                    <p>{{ service.description }}</p>
+                </div>
+            {% endfor %}
+        </section>
+    </div>
+
+
+<div class="custom-copyright" id="copyright-section">
+    <div class="custom-container">
+        <p>&copy; 2024 Your Company. All rights reserved. | <i class="fas fa-envelope"></i> info@example.com | <i class="fas fa-map-marker-alt"></i> 123 Street Name, City, Country | <i class="fas fa-phone"></i> +1234567890</p>
+    </div>
+</div>
+
+
+
+ <!-- JavaScript links (at the end of body for faster page load) -->
+ <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+ 
+<script>
+        const testimonials = document.querySelectorAll('.testimonial');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+
+        let currentIndex = 0;
+
+        function showTestimonial(index) {
+            testimonials.forEach((testimonial, idx) => {
+                testimonial.style.display = 'none';
+                if (idx === index) {
+                    testimonial.style.display = 'block';
+                }
+            });
+        }
+
+        function nextTestimonial() {
+            currentIndex++;
+            if (currentIndex >= testimonials.length) {
+                currentIndex = 0;
+            }
+            showTestimonial(currentIndex);
+        }
+
+        function prevTestimonial() {
+            currentIndex--;
+            if (currentIndex < 0) {
+                currentIndex = testimonials.length - 1;
+            }
+            showTestimonial(currentIndex);
+        }
+
+        // Event listeners for navigation buttons
+        nextBtn.addEventListener('click', nextTestimonial);
+        prevBtn.addEventListener('click', prevTestimonial);
+
+        // Show the first testimonial initially
+        showTestimonial(currentIndex);
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const leftNav = document.querySelector('.featured-left-nav');
+            const rightNav = document.querySelector('.featured-right-nav');
+            const items = document.querySelector('.featured-carousel-items');
+            const dots = document.querySelectorAll('.featured-dot');
+            
+            let currentIndex = 0;
+            
+            function updateCarousel() {
+                const itemWidth = items.querySelector('.featured-carousel-item').offsetWidth;
+                items.style.transform = `translateX(-${currentIndex * (itemWidth + 20)}px)`;
+                
+                dots.forEach(dot => dot.classList.remove('active'));
+                dots[currentIndex].classList.add('active');
+            }
+            
+            leftNav.addEventListener('click', () => {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                    updateCarousel();
+                }
+            });
+            
+            rightNav.addEventListener('click', () => {
+                if (currentIndex < dots.length - 1) {
+                    currentIndex++;
+                    updateCarousel();
+                }
+            });
+            
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    currentIndex = index;
+                    updateCarousel();
+                });
+            });
+            
+            updateCarousel();
+        });
+    </script>
+
+   <script>
+document.addEventListener("DOMContentLoaded", function() {
+    let slides = document.querySelectorAll('.image-slide');
+    let currentSlide = 0;
+
+    function showSlide(index) {
+        slides[currentSlide].style.opacity = 0;
+        currentSlide = (index + slides.length) % slides.length;
+        slides[currentSlide].style.opacity = 1;
+    }
+
+    function nextSlide() {
+        showSlide(currentSlide + 1);
+    }
+
+    setInterval(nextSlide, 3000); // Change slide every 3 seconds
+});
+
+</script>
+   
+</body>
+</html>

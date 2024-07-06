@@ -1,0 +1,379 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F6E6CB;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+    
+}
+
+
+/* Navbar CSS */
+.header .navbar .nav-link {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    color: #333;
+}
+
+.header .navbar .nav-link i.fas.fa-shopping-cart {
+    font-size: 1.5rem;
+    color: #333;
+    margin-left: 20px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.header .navbar .nav-link i.fas.fa-shopping-cart:hover {
+    color: #61d95a;
+}
+
+
+/* Custom CSS for navbar responsiveness */
+header.header {
+    padding: 0px 0;
+    background-color: #2e2f42;
+}
+
+.navbar-brand {
+    font-size: 2rem;
+}
+
+.navbar-nav .nav-link {
+    font-size: 1.2rem;
+}
+
+@media (max-width: 992px) {
+    .navbar-brand {
+        font-size: 1.75rem;
+    }
+    .navbar-nav .nav-link {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar-brand {
+        font-size: 1.5rem;
+    }
+    .navbar-nav .nav-link {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar-brand {
+        font-size: 1.25rem;
+    }
+    .navbar-nav .nav-link {
+        font-size: 0.85rem;
+    }
+}
+
+.header {
+    background-color: #fff;
+    padding: 10px 0;
+}
+
+.navbar-brand {
+    font-family: 'Dosis', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.navbar-nav .nav-item .nav-link {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    color: #333;
+}
+
+
+
+.product-detail {
+    display: flex;
+    background-color: #3b3c54;
+    border-radius: 10px;
+    overflow: hidden;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.image-section {
+    display: flex;
+    padding: 20px;
+    align-items: center;
+}
+
+.image-slider {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.slider-btn {
+    background-color: #6a5acd;
+    border: none;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.thumbnails {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow-y: auto;
+}
+
+.thumbnail {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border: 2px solid transparent;
+    cursor: pointer;
+}
+
+.thumbnail:hover {
+    border-color: #fff;
+}
+
+.main-image {
+    margin-left: 20px;
+}
+
+.main-image img {
+    width: 400px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.product-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+}
+
+.product-info h1 {
+    margin: 0 0 10px;
+}
+
+.price {
+    margin: 10px 0;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group select, .form-group input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+.quantity {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.quantity-btn {
+    background-color: #6a5acd;
+    border: none;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.quantity input {
+    width: 50px;
+    text-align: center;
+    margin: 0 10px;
+}
+
+.add-to-cart {
+    background-color: #6a5acd;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.add-to-cart:hover {
+    background-color: #5a4cc4;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    color: #000;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+button {
+    background-color: #6a5acd;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #5a4cc4;
+}
+
+
+
+/* Add styles for the basket modal and its items */
+
+
+@media (max-width: 768px) {
+    .product-detail {
+        flex-direction: column;
+    }
+
+    .image-section {
+        flex-direction: column;
+    }
+
+    .main-image {
+        margin-left: 0;
+        margin-top: 20px;
+    }
+
+    .main-image img {
+        width: 100%;
+    }
+}
+/* CSS for Basket Items */
+
+.basket-item {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+
+
+
+
+.basket-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.delete-icon, .edit-icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2em;
+    margin-left: 10px;
+    color: #f00;
+}
+
+
+.basket-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.basket-item p {
+    flex: 1 1 100%; /* Flexbox: grow, shrink, basis */
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.basket-item input[type="number"] {
+    width: 60px;
+    padding: 5px;
+    margin-right: 10px;
+}
+
+.basket-item button {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    font-size: 16px;
+    margin-left: 5px;
+    padding: 0;
+}
+
+.basket-item .delete-icon {
+    color: #f00; /* Red color for delete icon */
+}
+
+.basket-item .edit-icon {
+    color: #00f; /* Blue color for edit icon */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .basket-item {
+        flex-direction: column;
+    }
+
+    .basket-item input[type="number"] {
+        width: 100%;
+        margin-right: 0;
+        margin-top: 5px;
+    }
+
+    .basket-item button {
+        margin-top: 5px;
+    }
+}
+

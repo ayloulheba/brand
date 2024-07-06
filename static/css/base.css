@@ -1,0 +1,202 @@
+ /* Custom CSS for responsiveness */
+ 
+ body, html {
+   
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    
+}
+
+.header .navbar .nav-link {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    color: #333;
+}
+
+.header .navbar .nav-link i.fas.fa-shopping-cart {
+    font-size: 1.5rem;
+    color: #333;
+    margin-left: 20px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.header .navbar .nav-link i.fas.fa-shopping-cart:hover {
+    color: #61d95a;
+}
+
+
+/* Custom CSS for navbar responsiveness */
+header.header {
+    padding: 10px 0;
+    
+}
+
+.navbar-brand {
+    font-size: 2rem;
+}
+
+.navbar-nav .nav-link {
+    font-size: 1.2rem;
+}
+
+@media (max-width: 992px) {
+    .navbar-brand {
+        font-size: 1.75rem;
+    }
+    .navbar-nav .nav-link {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar-brand {
+        font-size: 1.5rem;
+    }
+    .navbar-nav .nav-link {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar-brand {
+        font-size: 1.25rem;
+    }
+    .navbar-nav .nav-link {
+        font-size: 0.85rem;
+    }
+}
+
+.header {
+    background-color: #fff;
+    padding: 10px 0;
+}
+
+.navbar-brand {
+    font-family: 'Dosis', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.navbar-nav .nav-item .nav-link {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    color: #333;
+}
+
+.custom-footer {
+    color: #fff;
+    padding: 50px 0;
+    background: url('3.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+.custom-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.custom-row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: -15px;
+}
+
+.custom-col-lg-6 {
+    width: 45%;
+    padding: 15px;
+}
+
+.contact-form,
+.contact-info {
+    margin-bottom: 30px;
+}
+
+.contact-form h3,
+.contact-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.contact-form form {
+    max-width: 100%;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.form-group button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.form-group button:hover {
+    background-color: #0056b3;
+}
+
+.contact-info ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.contact-info ul li {
+    margin-bottom: 10px;
+}
+
+.contact-info ul li i {
+    margin-right: 10px;
+}
+
+.custom-copyright {
+    background-color: #222;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
+}
+
+.custom-copyright p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .custom-col-lg-6 {
+        width: 100%;
+    }
+
+    .contact-form form {
+        padding: 0 20px;
+    }
+}
+/* Ensure no margin/padding at the top */
+.header {
+    margin: 0;
+    padding: 0;
+}
