@@ -28,7 +28,6 @@ SECRET_KEY = config("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config("MY_DEBUG", "False")
 # Set to True to enable maintenance mode
-SECRET_KEY = "django-insecure-cvs454cjr8&&@qkav2g*%kr7@b9w$4-ek4bf!rht$nj7tz@=!3"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
